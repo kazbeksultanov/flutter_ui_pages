@@ -13,7 +13,7 @@ import 'package:flutter_ui_pages/main.dart';
 void main() {
   testWidgets('Title check', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(UiPageList());
+    await tester.pumpWidget(MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('DigitalPax Demo Apps'), findsOneWidget);
