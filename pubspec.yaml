@@ -1,0 +1,78 @@
+name: flutter_ui_pages
+description: DigitalPax Demo Apps.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  rect_getter: ^0.0.1
+  gradient_text: ^1.0.2
+  flutter_launcher_icons: ^0.7.0
+  url_launcher: ^3.0.2
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/digital_pax_logo2.png"
+  adaptive_icon_background: "assets/digital_pax_logo2.png"
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+  - assets/digital_pax_logo.png
+  - assets/story_app_ui_page/image_01.png
+  - assets/story_app_ui_page/image_02.jpg
+  - assets/story_app_ui_page/image_03.jpg
+  - assets/story_app_ui_page/image_04.jpg
+  - assets/adidas_shoes_ui_page/adidas.png
+  - assets/adidas_shoes_ui_page/360.png
+  - assets/adidas_shoes_ui_page/cart.png
+  - assets/adidas_shoes_ui_page/preview.jpg
+  - assets/onboarding_app_ui_page/illustration.png
+  - assets/onboarding_app_ui_page/illustration2.png
+  - assets/onboarding_app_ui_page/illustration3.png
+
+  fonts:
+  - family: SF-Pro-Text-Regular
+    fonts:
+    - asset: assets/story_app_ui_page/SF-Pro-Text-Regular.otf
+
+  - family: SF-Pro-Text-Bold
+    fonts:
+    - asset: assets/story_app_ui_page/SF-Pro-Text-Bold.otf
+
+  - family: Calibre-Semibold
+    fonts:
+    - asset: assets/story_app_ui_page/Calibre Semibold.otf
+
+  - family: CustomIcons
+    fonts:
+    - asset: assets/story_app_ui_page/custom_icons.ttf
+
+  - family: Montserrat-Bold
+    fonts:
+    - asset: assets/adidas_shoes_ui_page/Montserrat-Bold.ttf
+
+  - family: Montserrat-Medium
+    fonts:
+    - asset: assets/adidas_shoes_ui_page/Montserrat-Medium.ttf
+
+  - family: Montserrat-SemiBold
+    fonts:
+    - asset: assets/adidas_shoes_ui_page/Montserrat-SemiBold.ttf
+
+  - family: Montserrat-Black
+    fonts:
+    - asset: assets/onboarding_app_ui_page/Montserrat-Black.ttf
