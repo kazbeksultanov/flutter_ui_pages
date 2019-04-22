@@ -221,10 +221,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
     if (index % 2 == 0) {
       return Container(
         margin: EdgeInsets.only(top: 20.0),
-        height: hAdaptive(135.0, context),
         width: double.infinity,
         child: Stack(
-          fit: StackFit.expand,
+          fit: StackFit.loose,
           children: <Widget>[
             Container(
               color: colors['body_selected'],
@@ -238,7 +237,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
               children: <Widget>[
                 Expanded(flex: 1, child: Container()),
                 Expanded(
-                    flex: 18,
+                    flex: 36,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,9 +261,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                         ),
                       ],
                     )),
-                Expanded(flex: 1, child: Container()),
+                Expanded(flex: 2, child: Container()),
                 Expanded(
-                    flex: 20,
+                    flex: 40,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -358,10 +357,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
     } else {
       return Container(
         margin: EdgeInsets.only(top: 20.0),
-        height: hAdaptive(135.0, context),
         width: double.infinity,
         child: Stack(
-          fit: StackFit.expand,
+          fit: StackFit.passthrough,
           children: <Widget>[
             Container(
               color: colors['body_selected'],

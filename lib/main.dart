@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: UiPageList(),
-//      home: FavouritesUiPage(),
+//      home: UiPageList(),
+      home: FavouritesUiPage(),
     );
   }
 }
