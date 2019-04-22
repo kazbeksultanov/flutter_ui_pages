@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-//      home: UiPageList(),
-      home: FavouritesUiPage(),
+      home: UiPageList(),
+//      home: FavouritesUiPage(),
     );
   }
 }
@@ -42,6 +42,12 @@ class UiPageList extends StatefulWidget {
       'assets/onboarding_app_ui_page/illustration3.png',
       OnboardingAppUiPage(),
       'https://github.com/devefy/Flutter-Onboarding',
+    ),
+    Page(
+      'Favourites TV Page',
+      'assets/favourites_ui_page/tv1.jpg',
+      FavouritesUiPage(),
+      'https://dribbble.com/shots/6324044-Daily-UI-Challenge-044-Favourites',
     ),
   ];
 

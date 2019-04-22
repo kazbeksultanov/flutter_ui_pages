@@ -35,7 +35,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
       DateTime(2019, 2, 10),
     ),
     TvItem(
-      'FRINDES',
+      'FRIENDES',
       'assets/favourites_ui_page/tv3.jpg',
       true,
       false,
@@ -71,7 +71,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    print(Color.fromRGBO(38, 119, 167, 1.0).value);
+    print('h: ' + size.height.toString() + ', w: ' + size.width.toString());
     return Container(
       height: size.height,
       width: size.width,
@@ -85,26 +85,26 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
               elevation: 2.0,
               bottom: PreferredSize(
                 child: Container(),
-                preferredSize: Size(double.infinity, 18.0),
+                preferredSize: Size(double.infinity, hAdaptive(18.0, context)),
               ),
               backgroundColor: colors['panel_base'],
               centerTitle: true,
               leading: IconButton(
-                padding: EdgeInsets.only(left: 18.0, top: 18.0),
+                padding: EdgeInsets.only(left: hAdaptive(18.0, context), top: hAdaptive(18.0, context)),
                 icon: Icon(
                   Icons.menu,
                   color: Colors.white,
-                  size: 40.0,
+                  size: hAdaptive(40.0, context),
                 ),
                 onPressed: () {},
               ),
               actions: <Widget>[
                 IconButton(
-                  padding: EdgeInsets.only(right: 28.0, top: 18.0),
+                  padding: EdgeInsets.only(right: hAdaptive(28.0, context), top: hAdaptive(18.0, context)),
                   icon: Icon(
                     Icons.settings,
                     color: Colors.white,
-                    size: 40.0,
+                    size: hAdaptive(40.0, context),
                   ),
                   onPressed: () {},
                 )
@@ -115,7 +115,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
               decoration: BoxDecoration(
                 color: colors['panel_base'],
               ),
-              height: 70.0,
+              height: hAdaptive(70.0, context),
               width: double.infinity,
               child: Row(
                 mainAxisSize: MainAxisSize.max,
@@ -126,7 +126,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                     icon: Icon(
                       Icons.star,
                       color: Colors.white,
-                      size: 40.0,
+                      size: hAdaptive(40.0, context),
                     ),
                     onPressed: () {},
                   ),
@@ -135,7 +135,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                     icon: Icon(
                       Icons.file_download,
                       color: Colors.white,
-                      size: 40.0,
+                      size: hAdaptive(40.0, context),
                     ),
                     onPressed: () {},
                   ),
@@ -144,10 +144,10 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             ),
           ),
           Positioned(
-            left: size.width / 2 - 50,
-            top: 30,
-            height: 100.0,
-            width: 100.0,
+            left: size.width / 2 - hAdaptive(50.0, context),
+            top: hAdaptive(30.0, context),
+            height: hAdaptive(100.0, context),
+            width: hAdaptive(100.0, context),
             child: Container(
               decoration: BoxDecoration(
                 color: colors['panel_base'],
@@ -165,16 +165,16 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                 child: Icon(
                   Icons.live_tv,
                   color: Colors.white,
-                  size: 65.0,
+                  size: hAdaptive(65.0, context),
                 ),
               ),
             ),
           ),
           Positioned(
-            left: size.width / 2 - 50,
-            bottom: 2.0,
-            height: 100.0,
-            width: 100.0,
+            left: size.width / 2 - hAdaptive(50.0, context),
+            bottom: hAdaptive(2.0, context),
+            height: hAdaptive(100.0, context),
+            width: hAdaptive(100.0, context),
             child: Container(
               decoration: BoxDecoration(
                 color: colors['panel_base'],
@@ -192,7 +192,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                 child: Icon(
                   Icons.person,
                   color: Colors.white,
-                  size: 65.0,
+                  size: hAdaptive(65.0, context),
                 ),
               ),
             ),
@@ -204,7 +204,8 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
 
   _buildTvItem(List<TvItem> tvItemsList, BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height - 180,
+      height: hAdaptive(515, context),
+      width: MediaQuery.of(context).size.width,
       child: ListView.builder(
           shrinkWrap: true,
           physics: BouncingScrollPhysics(),
@@ -216,254 +217,278 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
   }
 
   makeTvItem(TvItem tvItem, int index, BuildContext context) {
+    double iconSize = 28.0;
     if (index % 2 == 0) {
-      print(index);
       return Container(
-        margin: EdgeInsets.only(top: 30.0),
-        height: 135.0,
+        margin: EdgeInsets.only(top: 20.0),
+        height: hAdaptive(135.0, context),
         width: double.infinity,
-        alignment: Alignment.bottomLeft,
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 12.0),
-              height: 8.0,
-              width: double.infinity,
               color: colors['body_selected'],
+              margin: EdgeInsets.only(top: 10.0),
+              height: hAdaptive(135.0, context),
             ),
-            Positioned(
-              left: 12.0,
-              height: 100.0,
-              width: 180.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      offset: Offset(0.0, 0.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 3.0,
-                    )
-                  ],
-                ),
-                child: Image.asset(
-                  tvItem.imageAsset,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 200.0,
-              top: 10.0,
-              height: 120.0,
-              width: MediaQuery.of(context).size.width - 200,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.star,
-                          color: tvItem.isFavourite ? Colors.yellow : Colors.white,
-                          size: 28.0,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(flex: 1, child: Container()),
+                Expanded(
+                    flex: 18,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black38,
+                                offset: Offset(0.0, 0.0),
+                                spreadRadius: 1.0,
+                                blurRadius: 3.0,
+                              )
+                            ],
+                          ),
+                          child: Image.asset(
+                            tvItem.imageAsset,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications,
-                          color: tvItem.isNotified ? Colors.yellow : Colors.white,
-                          size: 28.0,
+                      ],
+                    )),
+                Expanded(flex: 1, child: Container()),
+                Expanded(
+                    flex: 20,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        SizedBox(
+                          height: hAdaptive(22.0, context),
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.launch,
-                          color: Colors.white,
-                          size: 28.0,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.star,
+                                color: tvItem.isFavourite ? Colors.yellow : Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.notifications,
+                                color: tvItem.isNotified ? Colors.yellow : Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.launch,
+                                color: Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.file_download,
+                                color: Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                          ],
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.file_download,
-                          color: Colors.white,
-                          size: 28.0,
+                        Padding(
+                          padding: EdgeInsets.only(top: hAdaptive(16.0, context)),
+                          child: Text(
+                            tvItem.title,
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: hAdaptive(14.0, context),
+                              fontFamily: 'SF-Pro-Text-Regular',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 4.0),
-                    child: Text(
-                      tvItem.title,
-                      softWrap: true,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontFamily: 'SF-Pro-Text-Regular',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'Last Eposiode: ' + DateFormat.yMMMd().format(tvItem.lastEpisode),
-                      softWrap: true,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontFamily: 'SF-Pro-Text-Regular',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'Next Eposiode: ' + DateFormat.yMMMd().format(tvItem.nextEpisode),
-                    softWrap: true,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                      fontFamily: 'SF-Pro-Text-Regular',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                        Padding(
+                          padding: EdgeInsets.only(top: hAdaptive(8.0, context)),
+                          child: Text(
+                            'Last Eposiode: ' + DateFormat.yMMMd().format(tvItem.lastEpisode),
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: hAdaptive(14.0, context),
+                              fontFamily: 'SF-Pro-Text-Regular',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Next Eposiode: ' + DateFormat.yMMMd().format(tvItem.nextEpisode),
+                          softWrap: true,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: hAdaptive(14.0, context),
+                            fontFamily: 'SF-Pro-Text-Regular',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    )),
+                Expanded(flex: 1, child: Container()),
+              ],
+            )
           ],
         ),
       );
     } else {
       return Container(
-        margin: EdgeInsets.only(top: 30.0),
-        height: 135.0,
+        margin: EdgeInsets.only(top: 20.0),
+        height: hAdaptive(135.0, context),
         width: double.infinity,
-        alignment: Alignment.bottomLeft,
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
             Container(
-              margin: EdgeInsets.only(top: 12.0),
-              height: 8.0,
-              width: double.infinity,
               color: colors['body_selected'],
+              margin: EdgeInsets.only(top: 10.0),
+              height: hAdaptive(135.0, context),
             ),
-            Positioned(
-              left: 220.0,
-              height: 100.0,
-              width: 180.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black38,
-                      offset: Offset(0.0, 0.0),
-                      spreadRadius: 1.0,
-                      blurRadius: 3.0,
-                    )
-                  ],
-                ),
-                child: Image.asset(
-                  tvItem.imageAsset,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Positioned(
-              left: 12.0,
-              top: 10.0,
-              height: 120.0,
-              width: MediaQuery.of(context).size.width - 200,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      IconButton(
-                        icon: Icon(
-                          Icons.star,
-                          color: tvItem.isFavourite ? Colors.yellow : Colors.white,
-                          size: 28.0,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(flex: 1, child: Container()),
+                Expanded(
+                    flex: 20,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        SizedBox(
+                          height: hAdaptive(22.0, context),
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications,
-                          color: tvItem.isNotified ? Colors.yellow : Colors.white,
-                          size: 28.0,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.star,
+                                color: tvItem.isFavourite ? Colors.yellow : Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.notifications,
+                                color: tvItem.isNotified ? Colors.yellow : Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.launch,
+                                color: Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(
+                                Icons.file_download,
+                                color: Colors.white,
+                                size: hAdaptive(iconSize, context),
+                              ),
+                            ),
+                          ],
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.launch,
-                          color: Colors.white,
-                          size: 28.0,
+                        Padding(
+                          padding: EdgeInsets.only(top: hAdaptive(16.0, context)),
+                          child: Text(
+                            tvItem.title,
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: hAdaptive(14.0, context),
+                              fontFamily: 'SF-Pro-Text-Regular',
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.file_download,
-                          color: Colors.white,
-                          size: 28.0,
+                        Padding(
+                          padding: EdgeInsets.only(top: hAdaptive(8.0, context)),
+                          child: Text(
+                            'Last Eposiode: ' + DateFormat.yMMMd().format(tvItem.lastEpisode),
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: hAdaptive(14.0, context),
+                              fontFamily: 'SF-Pro-Text-Regular',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                        onPressed: () {},
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 4.0),
-                    child: Text(
-                      tvItem.title,
-                      softWrap: true,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontFamily: 'SF-Pro-Text-Regular',
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'Last Eposiode: ' + DateFormat.yMMMd().format(tvItem.lastEpisode),
-                      softWrap: true,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14.0,
-                        fontFamily: 'SF-Pro-Text-Regular',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'Next Eposiode: ' + DateFormat.yMMMd().format(tvItem.nextEpisode),
-                    softWrap: true,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.0,
-                      fontFamily: 'SF-Pro-Text-Regular',
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+                        Text(
+                          'Next Eposiode: ' + DateFormat.yMMMd().format(tvItem.nextEpisode),
+                          softWrap: true,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: hAdaptive(14.0, context),
+                            fontFamily: 'SF-Pro-Text-Regular',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    )),
+                Expanded(flex: 1, child: Container()),
+                Expanded(
+                    flex: 18,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black38,
+                                offset: Offset(0.0, 0.0),
+                                spreadRadius: 1.0,
+                                blurRadius: 3.0,
+                              )
+                            ],
+                          ),
+                          child: Image.asset(
+                            tvItem.imageAsset,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ],
+                    )),
+                Expanded(flex: 1, child: Container()),
+              ],
+            )
           ],
         ),
       );
@@ -487,4 +512,12 @@ class TvItem {
     this.lastEpisode,
     this.nextEpisode,
   );
+}
+
+double wAdaptive(double size, BuildContext context) {
+  return size * MediaQuery.of(context).size.width / 411.428;
+}
+
+double hAdaptive(double size, BuildContext context) {
+  return size * MediaQuery.of(context).size.height / 684.43;
 }
