@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FavouritesUiPage extends StatefulWidget {
   @override
@@ -35,7 +36,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
       DateTime(2019, 2, 10),
     ),
     TvItem(
-      'FRIENDES',
+      'FRIENDS',
       'assets/favourites_ui_page/tv3.jpg',
       true,
       false,
@@ -68,6 +69,8 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
     ),
   ];
 
+  var _key = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -77,12 +80,13 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
       width: size.width,
       color: colors['body_base'],
       child: Stack(
-        fit: StackFit.expand,
+        fit: StackFit.passthrough,
         children: <Widget>[
           Scaffold(
+            key: _key,
             backgroundColor: Colors.transparent,
             appBar: AppBar(
-              elevation: 2.0,
+              elevation: 4.0,
               bottom: PreferredSize(
                 child: Container(),
                 preferredSize: Size(double.infinity, hAdaptive(18.0, context)),
@@ -96,7 +100,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                   color: Colors.white,
                   size: hAdaptive(40.0, context),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Text('Pressed drawer'),
+                        );
+                      });
+                },
               ),
               actions: <Widget>[
                 IconButton(
@@ -106,7 +118,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                     color: Colors.white,
                     size: hAdaptive(40.0, context),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Text('Pressed settings'),
+                          );
+                        });
+                  },
                 )
               ],
             ),
@@ -114,6 +134,14 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             bottomSheet: Container(
               decoration: BoxDecoration(
                 color: colors['panel_base'],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black38,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 3.0,
+                    spreadRadius: 1.0,
+                  )
+                ],
               ),
               height: hAdaptive(70.0, context),
               width: double.infinity,
@@ -128,7 +156,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                       color: Colors.white,
                       size: hAdaptive(40.0, context),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Text('Pressed favourites list'),
+                            );
+                          });
+                    },
                   ),
                   Container(),
                   IconButton(
@@ -137,7 +173,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                       color: Colors.white,
                       size: hAdaptive(40.0, context),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Text('Pressed download'),
+                            );
+                          });
+                    },
                   ),
                 ],
               ),
@@ -148,24 +192,35 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             top: hAdaptive(30.0, context),
             height: hAdaptive(100.0, context),
             width: hAdaptive(100.0, context),
-            child: Container(
-              decoration: BoxDecoration(
-                color: colors['panel_base'],
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black38,
-                    offset: Offset(0.0, 0.0),
-                    spreadRadius: 1.0,
-                    blurRadius: 1.0,
+            child: GestureDetector(
+              onTap: (){
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Text('Pressed logo'),
+                      );
+                    });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: colors['panel_base'],
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      offset: Offset(0.0, 0.0),
+                      spreadRadius: 1.0,
+                      blurRadius: 1.0,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.live_tv,
+                    color: Colors.white,
+                    size: hAdaptive(65.0, context),
                   ),
-                ],
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.live_tv,
-                  color: Colors.white,
-                  size: hAdaptive(65.0, context),
                 ),
               ),
             ),
@@ -175,24 +230,35 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             bottom: hAdaptive(2.0, context),
             height: hAdaptive(100.0, context),
             width: hAdaptive(100.0, context),
-            child: Container(
-              decoration: BoxDecoration(
-                color: colors['panel_base'],
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black38,
-                    offset: Offset(0.0, 0.0),
-                    spreadRadius: 1.0,
-                    blurRadius: 1.0,
+            child: GestureDetector(
+              onTap: (){
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        content: Text('Pressed account'),
+                      );
+                    });
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: colors['panel_base'],
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black38,
+                      offset: Offset(0.0, 0.0),
+                      spreadRadius: 1.0,
+                      blurRadius: 1.0,
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: hAdaptive(65.0, context),
                   ),
-                ],
-              ),
-              child: Center(
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: hAdaptive(65.0, context),
                 ),
               ),
             ),
@@ -223,12 +289,12 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
         margin: EdgeInsets.only(top: 20.0),
         width: double.infinity,
         child: Stack(
-          fit: StackFit.loose,
+          fit: StackFit.passthrough,
           children: <Widget>[
             Container(
               color: colors['body_selected'],
               margin: EdgeInsets.only(top: 10.0),
-              height: hAdaptive(135.0, context),
+              height: hAdaptive(120.0, context),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -277,7 +343,11 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  tvItem.isFavourite ? tvItem.isFavourite = false : tvItem.isFavourite = true;
+                                });
+                              },
                               child: Icon(
                                 Icons.star,
                                 color: tvItem.isFavourite ? Colors.yellow : Colors.white,
@@ -285,7 +355,11 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  tvItem.isNotified ? tvItem.isNotified = false : tvItem.isNotified = true;
+                                });
+                              },
                               child: Icon(
                                 Icons.notifications,
                                 color: tvItem.isNotified ? Colors.yellow : Colors.white,
@@ -293,7 +367,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                googleSearch(tvItem.title);
+                              },
                               child: Icon(
                                 Icons.launch,
                                 color: Colors.white,
@@ -301,7 +377,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: Text('Pressed download'),
+                                      );
+                                    });
+                              },
                               child: Icon(
                                 Icons.file_download,
                                 color: Colors.white,
@@ -317,7 +401,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                             softWrap: true,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: hAdaptive(14.0, context),
+                              fontSize: wAdaptive(14.0, context),
                               fontFamily: 'SF-Pro-Text-Regular',
                               fontWeight: FontWeight.bold,
                             ),
@@ -330,7 +414,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                             softWrap: true,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: hAdaptive(14.0, context),
+                              fontSize: wAdaptive(14.0, context),
                               fontFamily: 'SF-Pro-Text-Regular',
                               fontWeight: FontWeight.w500,
                             ),
@@ -341,7 +425,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                           softWrap: true,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: hAdaptive(14.0, context),
+                            fontSize: wAdaptive(14.0, context),
                             fontFamily: 'SF-Pro-Text-Regular',
                             fontWeight: FontWeight.w500,
                           ),
@@ -364,7 +448,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             Container(
               color: colors['body_selected'],
               margin: EdgeInsets.only(top: 10.0),
-              height: hAdaptive(135.0, context),
+              height: hAdaptive(120.0, context),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -373,7 +457,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
               children: <Widget>[
                 Expanded(flex: 1, child: Container()),
                 Expanded(
-                    flex: 20,
+                    flex: 40,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -387,7 +471,11 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  tvItem.isFavourite ? tvItem.isFavourite = false : tvItem.isFavourite = true;
+                                });
+                              },
                               child: Icon(
                                 Icons.star,
                                 color: tvItem.isFavourite ? Colors.yellow : Colors.white,
@@ -395,7 +483,11 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                setState(() {
+                                  tvItem.isNotified ? tvItem.isNotified = false : tvItem.isNotified = true;
+                                });
+                              },
                               child: Icon(
                                 Icons.notifications,
                                 color: tvItem.isNotified ? Colors.yellow : Colors.white,
@@ -403,7 +495,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                googleSearch(tvItem.title);
+                              },
                               child: Icon(
                                 Icons.launch,
                                 color: Colors.white,
@@ -411,7 +505,15 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {},
+                              onTap: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        content: Text('Pressed download'),
+                                      );
+                                    });
+                              },
                               child: Icon(
                                 Icons.file_download,
                                 color: Colors.white,
@@ -427,7 +529,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                             softWrap: true,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: hAdaptive(14.0, context),
+                              fontSize: wAdaptive(14.0, context),
                               fontFamily: 'SF-Pro-Text-Regular',
                               fontWeight: FontWeight.bold,
                             ),
@@ -440,7 +542,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                             softWrap: true,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: hAdaptive(14.0, context),
+                              fontSize: wAdaptive(14.0, context),
                               fontFamily: 'SF-Pro-Text-Regular',
                               fontWeight: FontWeight.w500,
                             ),
@@ -451,16 +553,16 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                           softWrap: true,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: hAdaptive(14.0, context),
+                            fontSize: wAdaptive(14.0, context),
                             fontFamily: 'SF-Pro-Text-Regular',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
                     )),
-                Expanded(flex: 1, child: Container()),
+                Expanded(flex: 2, child: Container()),
                 Expanded(
-                    flex: 18,
+                    flex: 36,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -518,4 +620,11 @@ double wAdaptive(double size, BuildContext context) {
 
 double hAdaptive(double size, BuildContext context) {
   return size * MediaQuery.of(context).size.height / 684.43;
+}
+
+void googleSearch(String str) async {
+  if (await canLaunch('https://www.google.com')) {
+    str.replaceAll(' ', '+');
+    launch('https://www.google.com/search?q=$str&oq=$str');
+  }
 }
