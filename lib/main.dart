@@ -62,46 +62,50 @@ class _UiPageListState extends State<UiPageList> {
       children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            image: DecorationImage(image: AssetImage('assets/digital_pax_logo.png')),
+            image: DecorationImage(
+              image: AssetImage('assets/digital_pax_logo.png'),
+              fit: BoxFit.contain,
+            ),
             gradient: LinearGradient(
-              tileMode: TileMode.repeated,
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [Colors.brown, Colors.black87],
+              tileMode: TileMode.mirror,
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.blueGrey[700], Colors.blueGrey[900]],
             ),
           ),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            elevation: 2.0,
+            backgroundColor: Colors.blueGrey[700],
+            title: Text(
+              'DigitalPax Demo Apps',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 28.0,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.0,
+                shadows: [
+                  Shadow(
+                    color: Colors.black38,
+                    offset: Offset(10.0, 10.0),
+                    blurRadius: 10.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
           body: ListView(
             physics: BouncingScrollPhysics(),
             children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(left: 16.0, top: 18.0),
-                child: Text(
-                  'DigitalPax Demo Apps',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.0,
-                    shadows: [
-                      Shadow(
-                        color: Colors.black38,
-                        offset: Offset(10.0, 10.0),
-                        blurRadius: 10.0,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
               ListView.builder(
                   shrinkWrap: true,
                   physics: ClampingScrollPhysics(),
                   itemCount: widget.pages.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20.0),
                         child: Container(
@@ -109,19 +113,24 @@ class _UiPageListState extends State<UiPageList> {
                             color: Colors.white30,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black54,
+                                color: Colors.black87,
                                 offset: Offset(10.0, 10.0),
                                 blurRadius: 10.0,
+                                spreadRadius: 10.0,
                               ),
                             ],
                           ),
                           width: MediaQuery.of(context).size.width,
-                          height: 200.0,
+                          height: hAdaptive(200.0, context),
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                                return widget.pages[index].page;
-                              }));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return widget.pages[index].page;
+                                  },
+                                ),
+                              );
                             },
                             child: Stack(
                               fit: StackFit.expand,
