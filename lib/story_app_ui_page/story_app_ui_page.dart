@@ -38,13 +38,31 @@ class _StoryAppUiPageState extends State<StoryAppUiPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    IconButton(
-                      icon: Icon(
-                        CustomIcons.menu,
-                        color: Colors.white,
-                        size: 30.0,
-                      ),
-                      onPressed: () {},
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        IconButton(
+                          icon: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                            size: 24.0,
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        SizedBox(width: 8.0),
+                        IconButton(
+                          icon: Icon(
+                            CustomIcons.menu,
+                            color: Colors.white,
+                            size: 30.0,
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
                     ),
                     IconButton(
                       icon: Icon(
@@ -218,11 +236,11 @@ class _StoryAppUiPageState extends State<StoryAppUiPage> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: GestureDetector(
-                  onTap: ()  {
-                     setState(() {
+                  onTap: () {
+                    setState(() {
                       if (_animate) {
                         ++fotoNumPrev;
-                      } else{
+                      } else {
                         ++fotoNum;
                       }
 

@@ -105,7 +105,20 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          content: Text('Pressed drawer'),
+                          content: Text('Pressed drawer. Whant to go back?'),
+                          actions: <Widget>[
+                            FlatButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Yes'),
+                            ),
+                            FlatButton(
+                              onPressed: () {Navigator.of(context).pop();},
+                              child: Text('No'),
+                            ),
+                          ],
                         );
                       });
                 },
@@ -193,7 +206,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             height: hAdaptive(100.0, context),
             width: hAdaptive(100.0, context),
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 showDialog(
                     context: context,
                     builder: (context) {
@@ -231,7 +244,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
             height: hAdaptive(100.0, context),
             width: hAdaptive(100.0, context),
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 showDialog(
                     context: context,
                     builder: (context) {
