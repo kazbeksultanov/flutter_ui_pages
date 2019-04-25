@@ -9,66 +9,6 @@ class FavouritesUiPage extends StatefulWidget {
 }
 
 class _FavouritesUiPageState extends State<FavouritesUiPage> {
-  Map<String, Color> colors = {
-    'panel_base': Color(0xFF1497ED),
-    'panel_icons': Color(0xFFebedef),
-    'body_base': Color(0xFF14699F),
-    'body_selected': Color(0xFF2D7BAA),
-    'body_icon': Color(0xFFb8c0c6),
-    'body_icon_selected': Color(0xFFF8DD1B),
-  };
-
-  List<TvItem> tvItems = [
-    TvItem(
-      'ALAN PARTRIDGE: THIS TIME',
-      'assets/favourites_ui_page/tv1.jpg',
-      true,
-      false,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-    TvItem(
-      'GAME OF THRONES',
-      'assets/favourites_ui_page/tv2.jpg',
-      true,
-      true,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-    TvItem(
-      'FRIENDS',
-      'assets/favourites_ui_page/tv3.jpg',
-      true,
-      false,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-    TvItem(
-      'SIMPSONS',
-      'assets/favourites_ui_page/tv4.jpg',
-      true,
-      false,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-    TvItem(
-      'GALACTICA',
-      'assets/favourites_ui_page/tv5.jpg',
-      false,
-      false,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-    TvItem(
-      'BREAKING BAD',
-      'assets/favourites_ui_page/tv6.jpg',
-      true,
-      true,
-      DateTime(2019, 2, 3),
-      DateTime(2019, 2, 10),
-    ),
-  ];
-
   var _key = GlobalKey<ScaffoldState>();
 
   @override
@@ -115,7 +55,9 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                               child: Text('Yes'),
                             ),
                             FlatButton(
-                              onPressed: () {Navigator.of(context).pop();},
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
                               child: Text('No'),
                             ),
                           ],
@@ -641,3 +583,62 @@ void googleSearch(String str) async {
     launch('https://www.google.com/search?q=$str&oq=$str');
   }
 }
+
+Map<String, Color> colors = {
+  'panel_base': Color(0xFF1497ED),
+  'panel_icons': Color(0xFFebedef),
+  'body_base': Color(0xFF14699F),
+  'body_selected': Color(0xFF2D7BAA),
+  'body_icon': Color(0xFFb8c0c6),
+  'body_icon_selected': Color(0xFFF8DD1B),
+};
+List<TvItem> tvItems = [
+  TvItem(
+    'ALAN PARTRIDGE: THIS TIME',
+    'assets/favourites_ui_page/tv1.jpg',
+    true,
+    false,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+  TvItem(
+    'GAME OF THRONES',
+    'assets/favourites_ui_page/tv2.jpg',
+    true,
+    true,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+  TvItem(
+    'FRIENDS',
+    'assets/favourites_ui_page/tv3.jpg',
+    true,
+    false,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+  TvItem(
+    'SIMPSONS',
+    'assets/favourites_ui_page/tv4.jpg',
+    true,
+    false,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+  TvItem(
+    'GALACTICA',
+    'assets/favourites_ui_page/tv5.jpg',
+    false,
+    false,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+  TvItem(
+    'BREAKING BAD',
+    'assets/favourites_ui_page/tv6.jpg',
+    true,
+    true,
+    DateTime(2019, 2, 3),
+    DateTime(2019, 2, 10),
+  ),
+];

@@ -26,11 +26,13 @@ class _StoryAppUiPageState extends State<StoryAppUiPage> {
     controller.addListener(() {
       setState(() {
         currentPage = controller.page;
+        print('ControlPage: ' + currentPage.toString());
       });
     });
     return Scaffold(
         backgroundColor: Color(0xFF2d3447),
         body: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
           child: Column(
             children: <Widget>[
               Padding(
@@ -89,15 +91,44 @@ class _StoryAppUiPageState extends State<StoryAppUiPage> {
                         letterSpacing: 1.0,
                       ),
                     ),
-                    IconButton(
-                        alignment: Alignment.center,
-                        padding: EdgeInsets.only(right: 20.0),
-                        icon: Icon(
-                          CustomIcons.option,
-                          size: 12.0,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {})
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        IconButton(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.only(right: 4.0),
+                            icon: Icon(
+                              Icons.arrow_back_ios,
+                              size: 18.0,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              controller.animateToPage(currentPage.round() + 1, duration: Duration(milliseconds: 500), curve: SawTooth(1));
+                            }),
+                        IconButton(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.only(right: 20.0),
+                            icon: Icon(
+                              Icons.arrow_forward_ios,
+                              size: 18.0,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              controller.animateToPage(currentPage.round() - 1, duration: Duration(milliseconds: 500), curve: SawTooth(1));
+                            }),
+                        IconButton(
+                            alignment: Alignment.center,
+                            padding: EdgeInsets.only(right: 20.0),
+                            icon: Icon(
+                              CustomIcons.option,
+                              size: 12.0,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {}),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -140,6 +171,7 @@ class _StoryAppUiPageState extends State<StoryAppUiPage> {
                   CardScrollWidget(currentPage),
                   Positioned.fill(
                     child: PageView.builder(
+                      physics: ScrollPhysics(),
                       itemCount: images.length,
                       controller: controller,
                       reverse: true,
