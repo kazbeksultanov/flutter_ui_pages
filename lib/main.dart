@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-//      home: UiPageList(),
-      home: AnimationUiPage(),
+      home: UiPageList(),
+//      home: AnimationUiPage(),
     );
   }
 }
@@ -51,6 +51,12 @@ class UiPageList extends StatefulWidget {
       'assets/favourites_ui_page/tv1.jpg',
       FavouritesUiPage(),
       'https://dribbble.com/shots/6324044-Daily-UI-Challenge-044-Favourites',
+    ),
+    Page(
+      'Pictures',
+      'assets/animation_ui_page/picture.jpg',
+      AnimationUiPage(),
+      'https://digitalpax.kz/',
     ),
   ];
 

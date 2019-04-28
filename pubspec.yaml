@@ -34,61 +34,59 @@ flutter:
   uses-material-design: true
 
   assets:
-  - assets/digital_pax_logo.png
-  - assets/story_app_ui_page/image_01.png
-  - assets/story_app_ui_page/image_02.jpg
-  - assets/story_app_ui_page/image_03.jpg
-  - assets/story_app_ui_page/image_04.jpg
-  - assets/adidas_shoes_ui_page/adidas.png
-  - assets/adidas_shoes_ui_page/360.png
-  - assets/adidas_shoes_ui_page/cart.png
-  - assets/adidas_shoes_ui_page/preview.jpg
-  - assets/onboarding_app_ui_page/illustration.png
-  - assets/onboarding_app_ui_page/illustration2.png
-  - assets/onboarding_app_ui_page/illustration3.png
-  - assets/favourites_ui_page/tv1.jpg
-  - assets/favourites_ui_page/tv2.jpg
-  - assets/favourites_ui_page/tv3.jpg
-  - assets/favourites_ui_page/tv4.jpg
-  - assets/favourites_ui_page/tv5.jpg
-  - assets/favourites_ui_page/tv6.jpg
+    - assets/digital_pax_logo.png
+    - assets/story_app_ui_page/image_01.png
+    - assets/story_app_ui_page/image_02.jpg
+    - assets/story_app_ui_page/image_03.jpg
+    - assets/story_app_ui_page/image_04.jpg
+    - assets/adidas_shoes_ui_page/adidas.png
+    - assets/adidas_shoes_ui_page/360.png
+    - assets/adidas_shoes_ui_page/cart.png
+    - assets/adidas_shoes_ui_page/preview.jpg
+    - assets/onboarding_app_ui_page/illustration.png
+    - assets/onboarding_app_ui_page/illustration2.png
+    - assets/onboarding_app_ui_page/illustration3.png
+    - assets/favourites_ui_page/tv1.jpg
+    - assets/favourites_ui_page/tv2.jpg
+    - assets/favourites_ui_page/tv3.jpg
+    - assets/favourites_ui_page/tv4.jpg
+    - assets/favourites_ui_page/tv5.jpg
+    - assets/favourites_ui_page/tv6.jpg
+    - assets/animation_ui_page/picture.jpg
 
   fonts:
-  - family: SF-Pro-Text-Regular
-    fonts:
-    - asset: assets/story_app_ui_page/SF-Pro-Text-Regular.otf
+    - family: SF-Pro-Text-Regular
+      fonts:
+        - asset: assets/story_app_ui_page/SF-Pro-Text-Regular.otf
 
-  - family: SF-Pro-Text-Bold
-    fonts:
-    - asset: assets/story_app_ui_page/SF-Pro-Text-Bold.otf
+    - family: SF-Pro-Text-Bold
+      fonts:
+        - asset: assets/story_app_ui_page/SF-Pro-Text-Bold.otf
 
-  - family: Calibre-Semibold
-    fonts:
-    - asset: assets/story_app_ui_page/Calibre Semibold.otf
+    - family: Calibre-Semibold
+      fonts:
+        - asset: assets/story_app_ui_page/Calibre Semibold.otf
 
-  - family: CustomIcons
-    fonts:
-    - asset: assets/story_app_ui_page/custom_icons.ttf
+    - family: CustomIcons
+      fonts:
+        - asset: assets/story_app_ui_page/custom_icons.ttf
 
-  - family: Montserrat-Bold
-    fonts:
-    - asset: assets/adidas_shoes_ui_page/Montserrat-Bold.ttf
+    - family: Montserrat-Bold
+      fonts:
+        - asset: assets/adidas_shoes_ui_page/Montserrat-Bold.ttf
 
-  - family: Montserrat-Medium
-    fonts:
-    - asset: assets/adidas_shoes_ui_page/Montserrat-Medium.ttf
+    - family: Montserrat-Medium
+      fonts:
+        - asset: assets/adidas_shoes_ui_page/Montserrat-Medium.ttf
 
-  - family: Montserrat-SemiBold
-    fonts:
-    - asset: assets/adidas_shoes_ui_page/Montserrat-SemiBold.ttf
+    - family: Montserrat-SemiBold
+      fonts:
+        - asset: assets/adidas_shoes_ui_page/Montserrat-SemiBold.ttf
 
-  - family: Montserrat-Black
-    fonts:
-    - asset: assets/onboarding_app_ui_page/Montserrat-Black.ttf
+    - family: Montserrat-Black
+      fonts:
+        - asset: assets/onboarding_app_ui_page/Montserrat-Black.ttf
 
-  - family: CURVED
-    fonts:
-    - asset: assets/animation_ui_page/CURVED.ttf
-  - family: CURVED2
-    fonts:
-    - asset: assets/animation_ui_page/GreatVibes-Regular.ttf
+    - family: CURVED2
+      fonts:
+        - asset: assets/animation_ui_page/GreatVibes-Regular.ttf

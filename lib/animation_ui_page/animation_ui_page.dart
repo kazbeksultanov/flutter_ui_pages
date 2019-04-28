@@ -75,7 +75,7 @@ class _AnimationUiPageState extends State<AnimationUiPage> {
           ),
         ],
       ),
-      body: listPicture.length > 5
+      body: listPicture.length > 1
           ? Stack(
               fit: StackFit.expand,
               children: <Widget>[
@@ -156,28 +156,62 @@ class _AnimationUiPageState extends State<AnimationUiPage> {
                         shadows: [
                           Shadow(
                             color: Colors.black,
-                            offset: Offset(0, 0),
-                            blurRadius: 50.0,
-                          )
+                            offset: Offset(8, 8),
+                            blurRadius: 2.0,
+                          ),
                         ],
                       ),
                     ),
                   ),
                 ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: GestureDetector(
+                    child: Padding(
+                      padding: EdgeInsets.only(top: 36.0, left: 16.0),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 24.0,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ),
               ],
             )
-          : Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+          : Container(
+              child: Stack(
                 children: <Widget>[
-                  CircularProgressIndicator(),
-                  SizedBox(
-                    height: hAdaptive(16, context),
+                  Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                      colors: [
+                        Colors.blueGrey,
+                        Colors.indigo,
+                      ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      tileMode: TileMode.mirror,
+                    )),
                   ),
-                  Text(
-                    'Loading pictures from internet, wait few seconds please',
-                    softWrap: true,
-                  )
+                  Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        CircularProgressIndicator(),
+                        SizedBox(
+                          height: hAdaptive(16, context),
+                        ),
+                        Text(
+                          'Loading pictures from internet, wait few seconds please',
+                          softWrap: true,
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -243,15 +277,15 @@ class CirclesFlow extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: Container(
             margin: EdgeInsets.only(bottom: hAdaptive(140, context)),
-            height: hAdaptive(350, context),
-            width: hAdaptive(350, context),
+            height: wAdaptive(350, context),
+            width: wAdaptive(350, context),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: NetworkImage('https://picsum.photos/id/${pic.id}/${hAdaptive(350, context).round()}/${hAdaptive(350, context).round()}'),
+                image: NetworkImage('https://picsum.photos/id/${pic.id}/${wAdaptive(350, context).round()}/${wAdaptive(350, context).round()}'),
               ),
               border: Border.all(
-                width: hAdaptive(8, context),
+                width: wAdaptive(8, context),
                 color: Colors.blueGrey,
               ),
               boxShadow: [
@@ -269,11 +303,11 @@ class CirclesFlow extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(wAdaptive(8, context)),
                     child: Text(
                       (pageNumber - index.round() + 1).toString(),
                       style: TextStyle(
-                        fontSize: hAdaptive(26.0, context),
+                        fontSize: wAdaptive(26.0, context),
                         fontFamily: 'Montserrat-Bold',
                         color: Colors.white,
                         shadows: [
