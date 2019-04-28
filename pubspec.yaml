@@ -7,6 +7,8 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  random_string: ^0.0.2
+  http: ^0.12.0+2
   intl: any
   rect_getter: ^0.0.1
   gradient_text: ^1.0.2
@@ -83,3 +85,10 @@ flutter:
   - family: Montserrat-Black
     fonts:
     - asset: assets/onboarding_app_ui_page/Montserrat-Black.ttf
+
+  - family: CURVED
+    fonts:
+    - asset: assets/animation_ui_page/CURVED.ttf
+  - family: CURVED2
+    fonts:
+    - asset: assets/animation_ui_page/GreatVibes-Regular.ttf

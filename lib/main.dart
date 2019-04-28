@@ -5,6 +5,7 @@ import 'package:flutter_ui_pages/story_app_ui_page/story_app_ui_page.dart';
 import 'package:flutter_ui_pages/adidas_shoes_ui_page/adidas_shoes_ui_page.dart';
 import 'package:flutter_ui_pages/onboarding_app_ui_page/onboarding_app_ui_page.dart';
 import 'package:flutter_ui_pages/favourites_ui_page/favourites_ui_page.dart';
+import 'package:flutter_ui_pages/utils.dart';
 
 import 'animation_ui_page/animation_ui_page.dart';
 
