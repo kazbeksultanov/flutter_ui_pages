@@ -17,7 +17,7 @@ class _AnimationUiPageState extends State<AnimationUiPage> {
 
   double currentPage = 0.0;
   List<Picture> listPicture = [];
-  int page = 0;
+  int page = 1;
 
   var isLoading = false;
 
@@ -95,6 +95,7 @@ class _AnimationUiPageState extends State<AnimationUiPage> {
                 Positioned.fill(
                   child: PageView.builder(
                     controller: controller,
+                    itemCount: listPicture.length,
                     itemBuilder: (context, index) {
                       return Container();
                     },
@@ -223,10 +224,19 @@ class _AnimationUiPageState extends State<AnimationUiPage> {
     String url = 'https://picsum.photos/v2/list?page={0}&limit=10';
     if (listPicture.length <= index.round() + 10 && isLoading == false) {
       isLoading = true;
-      var responce = await http.get(url.replaceAll('{0}', page.toString()));
-      var r = jsonDecode(responce.body);
+      var response = await http.get(url.replaceAll('{0}', page.toString()));
+      var r = jsonDecode(response.body);
+      if(response.body.length<1650){
+        return null;
+      }
       for (var i = 0; i < 10; ++i) {
+        List rList = r;
+        print('rList: ' + rList.length.toString());
+        if (i >= rList.length) {
+          return null;
+        }
         var o = r[i];
+
         listPicture.add(Picture.fromJson(o));
       }
       page++;
