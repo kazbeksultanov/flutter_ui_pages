@@ -46,7 +46,7 @@ class _FavouritesUiPageState extends State<FavouritesUiPage> {
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                          content: Text('Pressed drawer. Whant to go back?'),
+                          content: Text('Pressed drawer. Want to go back?'),
                           actions: <Widget>[
                             FlatButton(
                               onPressed: () {
